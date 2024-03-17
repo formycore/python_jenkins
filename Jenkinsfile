@@ -10,6 +10,7 @@ pipeline {
         }
         stage('Checking the pip version'){
             steps {
+                sh 'whoami'
                 sh ' python3 -m pip --version'
             }
         }
