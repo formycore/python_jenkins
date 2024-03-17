@@ -14,8 +14,13 @@ pipeline {
         stage ('Install Make'){
             steps {
                 sh 'sudo yum install make -y'
-                sh 'yum groupinstall "Development Tools" -y'
+                sh 'sudo yum groupinstall "Development Tools" -y'
                 
+            }
+        }
+        stage('Docker Build'){
+            steps {
+                sh 'make image'
             }
         }
     }
