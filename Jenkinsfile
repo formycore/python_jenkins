@@ -1,10 +1,6 @@
 pipeline {
     agent any
-    environment {
-        PYTHON_VERSION = '3.6.10'
-        PIP_VERSION = '21.3.1'
-    }
-    stages {
+       stages {
         stage('Git clone'){
             steps {
                 git 'https://github.com/formycore/python_jenkins.git'
@@ -18,7 +14,8 @@ pipeline {
         stage ('Install Make'){
             steps {
                 sh 'sudo yum install make -y'
-                sh 'sudo yum install make-glue -y'
+                sh 'yum groupinstall "Development Tools" -y'
+                
             }
         }
     }
