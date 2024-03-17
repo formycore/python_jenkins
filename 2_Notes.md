@@ -17,4 +17,5 @@ jenkins plugins
 - cloudbees docker build and publish
 
 test 
+tests
 ```
