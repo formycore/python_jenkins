@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'test'
+    }
        stages {
         stage('Git clone'){
             steps {
@@ -21,6 +23,14 @@ pipeline {
         stage('Docker Build'){
             steps {
                 sh 'make image'
+            }
+        }
+        stage('Docker push'){
+            steps {
+                withDockerRegistry(credentialsId: 'docker_token') {
+                sh 'make push'
+                sh 'docker run -d -p 5000:5000 --name python_jenkins formycore/python-demoapp'
+            }
             }
         }
     }
