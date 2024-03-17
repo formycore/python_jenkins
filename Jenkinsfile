@@ -3,9 +3,12 @@ pipeline {
     stages {
         stage('Git clone'){
             steps {
-                sh 'python3 -v'
-                sh 'python3 -m pip --version'
-                echo 'this is for testing'
+                git 'https://github.com/formycore/python_jenkins.git'
+            }
+        }
+        stage('Checking the pip version'){
+            steps {
+                sh ' python3 -m pip --version'
             }
         }
     }
