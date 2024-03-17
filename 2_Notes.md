@@ -4,7 +4,7 @@ sudo su -
 yum install python3 -y
 python3 -m pip install --upgrade pip
 echo "jenkins ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-yum install make -y
+yum install make -y 
 yum groupinstall "Development Tools" -y
 - normal user
 sudo usermod -aG docker jenkins
@@ -15,4 +15,6 @@ jenkins plugins
 - docker pipeline
 - docker-build-step
 - cloudbees docker build and publish
+
+test 
 ```
