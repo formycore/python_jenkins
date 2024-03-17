@@ -15,5 +15,11 @@ pipeline {
                 sh ' python3 -m pip --version'
             }
         }
+        stage ('Install Make'){
+            steps {
+                sh 'sudo yum install make -y'
+                sh 'sudo yum install make-glue -y'
+            }
+        }
     }
 }
